@@ -106,6 +106,9 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  config.action_cable.allowed_request_origins = ['https://dry-castle-70330.herokuapp.com', 'http://dry-castle-70330.herokuapp.com']
+  config.action_mailer.default_url_options = { host: 'https://dry-castle-70330.herokuapp.com'}
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
