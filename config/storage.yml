@@ -5,7 +5,7 @@ test:
 azure:
    service: AzureStorage
    storage_account_name: webdocstorage
-   storage_access_key: ENV['AZURESTORAGE-API-KEY']
+   storage_access_key: <%= ENV['AZURESTORAGE-API-KEY'] %>
    container: mcdocs-container
 
 local:
