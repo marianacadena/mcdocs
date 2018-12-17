@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/mcdocs.iml" filepath="$PROJECT_DIR$/.idea/mcdocs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nokogiri-1.8.5.iml" filepath="$PROJECT_DIR$/.idea/modules/nokogiri-1.8.5.iml" />
     </modules>
   </component>
 </project>
