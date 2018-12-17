@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails mcdocs: test" uuid="3c5372f1-25f3-4a9f-9167-da6df15c96d7">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>usuarioweb</user-name>
+    </data-source>
+    <data-source name="Rails mcdocs: development" uuid="2ba719e2-d43a-4b92-9fb0-bcbfd0c98153">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <user-name>usuarioweb</user-name>
+    </data-source>
+  </component>
+</project>
