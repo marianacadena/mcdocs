@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  before_action :remove_authentication_flash_message_if_root_url_requested
   before_action :authenticate_academico!
   def index_home
     @doc_uploaded = Documento.new
@@ -53,10 +54,15 @@ class HomeController < ApplicationController
 
   end
   private
-    def upload_doc_params
-      params.require(:documento).permit(:nombre, :archivo)
+  def upload_doc_params
+    params.require(:documento).permit(:nombre, :archivo)
+  end
+  def download_pdf
+    send_file asset_path(url_for(params[:documento].archivo)), type: "application/pdf", x_sendfile: true
+  end
+  def remove_authentication_flash_message_if_root_url_requested
+    if session[:academico_return_to] == root_path and flash[:alert] == I18n.t('devise.failure.unauthenticated')
+      flash[:alert] = nil
     end
-    def download_pdf
-      send_file asset_path(url_for(params[:documento].archivo)), type: "application/pdf", x_sendfile: true
-    end
+  end
 end
