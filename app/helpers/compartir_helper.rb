@@ -1,0 +1,2 @@
+module CompartirHelper
+end

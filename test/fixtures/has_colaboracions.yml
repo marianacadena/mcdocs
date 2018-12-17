@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  academico: one
+  documento: one
+
+two:
+  academico: two
+  documento: two

@@ -1,0 +1,143 @@
+// Place all the styles related to the Welcome controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//@import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
+
+.register-block {
+  background: #278ea5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #278ea5, #21e6c1); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #278ea5, #21e6c1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  float: left;
+  padding: 50px 0;
+  width: 100%;
+}
+
+.banner-sec {
+  /*background: url(https://images.pexels.com/photos/235419/pexels-photo-235419.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb) no-repeat bottom;
+  background-size: cover;
+  min-height: 500px;
+  border-radius: 0 10px 10px 0;
+  padding: 0;*/
+  background: url('https://images.pexels.com/photos/235419/pexels-photo-235419.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb') no-repeat center center fixed;
+  background-size: cover;
+  border-radius: 0 10px 10px 0;
+  min-height: 500px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+.container {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 15px 20px 0px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-inner {
+  border-radius: 0 10px 10px 0;
+}
+
+.carousel-caption {
+  left: 5%;
+  text-align: left;
+}
+
+.register-sec {
+  padding: 50px 30px;
+  position: relative;
+}
+
+.register-sec .copy-text {
+  bottom: 20px;
+  font-size: 13px;
+  position: absolute;
+  text-align: center;
+  width: 80%;
+}
+
+.register-sec .copy-text i {
+  color: #FEB58A;
+}
+
+.register-sec .copy-text a {
+  color: #E36262;
+}
+
+.register-sec h2 {
+  color: #3f4c6b;
+  font-size: 30px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+
+.register-sec h2:after {
+  background: #3f4c6b;
+  border-radius: 3px;
+  content: " ";
+  display: block;
+  height: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 100px;
+}
+
+.btn-register {
+  background: #3f4c6b;
+  color: #fff;
+  font-weight: 600;
+}
+
+.banner-text {
+  bottom: 40px;
+  padding-left: 20px;
+  position: absolute;
+  width: 70%;
+}
+
+.banner-text h2 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.banner-text h2:after {
+  background: #FFF;
+  border-radius: 3px;
+  content: " ";
+  display: block;
+  height: 5px;
+  margin-top: 20px;
+  width: 100px;
+}
+
+.banner-text p {
+  color: #fff;
+}
+
+a.link-nav-dark {
+  color: #16A69E;
+  display: block;
+  padding: 15px 15px;
+  @include hover-focus {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+#img-logo {
+  height: 40px;
+  width: 100px;
+}
+
+#img_perfil {
+  height: 40px;
+  width: 40px;
+}
+
+
+
+
+
+
+

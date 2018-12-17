@@ -1,0 +1,17 @@
+// Place all the styles related to the editor controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#content-area{
+  height: 25rem;
+}
+#fondo-editor{
+  background: #17b978; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #17b978, #a7ff83); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #17b978, #a7ff83); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  float: left;
+  padding: 50px 0;
+  width: 100%;
+}
+

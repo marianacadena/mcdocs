@@ -1,0 +1,54 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+  <div class="view-account">
+    <section class="module">
+      <div class="module-inner">
+        <div class="side-bar">
+          <div class="user-info">
+            <%= image_tag url_for(current_academico.img_perfil), class: "mg-profile img-circle img-fluid center-block", html: {alt: ""} %>
+            <ul class="meta list list-unstyled">
+              <li class="name"> <%= current_academico.nombre %>
+              </li>
+              <li class="email"><a href="#"><%= current_academico.email %></a></li>
+            </ul>
+          </div>
+          <nav class="side-menu">
+            <ul class="nav">
+              <li><%= link_to "Regresar", "home" %></li>
+              <li><%= link_to "Cerrar Sesión", "signout" %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <div class="content-panel">
+      <div class="content-header-wrapper">
+        <div class="row">
+          <div class="col-md-9">
+            <ul id="conversations-list">
+              <% @conversations.each do |conversation| %>
+                <%= render 'conversations/conversation', conversation: conversation, academico: current_academico %>
+              <% end %>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Usuarios</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <% @academicos_conversation.each do |academico| %>
+                    <li><%= link_to academico.email, conversations_path(academico_id: academico), remote: true, method: :post %></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
