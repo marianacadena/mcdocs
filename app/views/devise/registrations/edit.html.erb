@@ -51,11 +51,11 @@
               <div>Esperando confirmación para: <%= resource.unconfirmed_email %></div>
             <% end %>
             <div class="col">
-              <%= f.label :password %>
+              <%= f.label :password,  value: "Nueva contraseña" %>
               <i class="form-text text-muted">(Deja en blanco si no quieres cambiarla)</i>
             </div>
             <div class="col">
-              <%= f.password_field :password, value: "Nueva contraseña", class: "form-control" %>
+              <%= f.password_field :password,"", class: "form-control" %>
               <% if @minimum_password_length %>
                 <em class="form-text text-muted"><%= @minimum_password_length %> caracteres mínimo</em>
               <% end %>
