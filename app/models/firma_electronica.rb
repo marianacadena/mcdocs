@@ -50,7 +50,7 @@ class FirmaElectronica < ApplicationRecord
   def generar_certificado(archivo, pem_file, pass_pem)
 
 
-    key_pem = File.read(pem_file.tempfile)
+    key_pem = File.read pem_file
 
 
     key = OpenSSL::PKey::RSA.new key_pem, pass_pem
