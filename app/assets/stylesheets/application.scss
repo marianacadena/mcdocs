@@ -66,114 +66,114 @@ ul {
   list-style: none;
 }
 
-.login-block {
-  float: left;
-  width: 100%;
-  padding: 50px 0;
-}
-
-.container {
-  background: #D3D3D3;
-  border-radius: 10px;
-  width: 40%;
-  height: 40%;
-}
-
-.login-sec {
-  padding: 50px 30px;
-  position: relative;
-}
-
-.login-sec h2 {
-  margin-bottom: 30px;
-  font-weight: 800;
-  font-size: 30px;
-  color: #0069c0;
-}
-
-.login-sec h2:after {
-  content: " ";
-  width: 100px;
-  height: 5px;
-  background: #6ec6ff;
-  display: block;
-  margin-top: 20px;
-  border-radius: 3px;
-  margin-left: auto;
-  margin-right: auto
-}
-
-.btn-login {
-  background: #0069c0;
-  color: #fff;
-  font-weight: 600;
-}
-
-.aboutus-area {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-
-/*-- aboutus Image --*/
-.aboutus-image {
-  margin-right: 52px;
-  width: 318px;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
-  .aboutus-image {
-    margin-right: 35px;
-    width: 345px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .aboutus-image {
-    margin-bottom: 30px;
-    float: none;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .aboutus-image {
-    margin-bottom: 30px;
-    margin-right: 0;
-    float: none;
-    width: auto;
-  }
-}
-
-.aboutus-image img {
-  width: 100%;
-}
-
-/*-- aboutus Content --*/
-.aboutus-content h1 {
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 40px;
-  margin-bottom: 2px;
-}
-
-@media only screen and (max-width: 479px) {
-  .aboutus-content h1 {
-    font-size: 30px;
-    line-height: 30px;
-  }
-}
-
-.aboutus-content h1 span {
-  color: #71b100;
-}
-
-.aboutus-content h4 {
-  font-size: 18px;
-  font-weight: 500;
-  color: #9b9b9b;
-  margin-bottom: 23px;
-}
-
-.aboutus-content p {
-  font-size: 16px;
-  line-height: 27px;
-}
+//.login-block {
+//  float: left;
+//  width: 100%;
+//  padding: 50px 0;
+//}
+//
+//.container {
+//  background: #D3D3D3;
+//  border-radius: 10px;
+//  width: 40%;
+//  height: 40%;
+//}
+//
+//.login-sec {
+//  padding: 50px 30px;
+//  position: relative;
+//}
+//
+//.login-sec h2 {
+//  margin-bottom: 30px;
+//  font-weight: 800;
+//  font-size: 30px;
+//  color: #0069c0;
+//}
+//
+//.login-sec h2:after {
+//  content: " ";
+//  width: 100px;
+//  height: 5px;
+//  background: #6ec6ff;
+//  display: block;
+//  margin-top: 20px;
+//  border-radius: 3px;
+//  margin-left: auto;
+//  margin-right: auto
+//}
+//
+//.btn-login {
+//  background: #0069c0;
+//  color: #fff;
+//  font-weight: 600;
+//}
+//
+//.aboutus-area {
+//  padding-top: 120px;
+//  padding-bottom: 120px;
+//}
+//
+///*-- aboutus Image --*/
+//.aboutus-image {
+//  margin-right: 52px;
+//  width: 318px;
+//}
+//
+//@media only screen and (min-width: 992px) and (max-width: 1200px) {
+//  .aboutus-image {
+//    margin-right: 35px;
+//    width: 345px;
+//  }
+//}
+//
+//@media only screen and (min-width: 768px) and (max-width: 991px) {
+//  .aboutus-image {
+//    margin-bottom: 30px;
+//    float: none;
+//  }
+//}
+//
+//@media only screen and (max-width: 767px) {
+//  .aboutus-image {
+//    margin-bottom: 30px;
+//    margin-right: 0;
+//    float: none;
+//    width: auto;
+//  }
+//}
+//
+//.aboutus-image img {
+//  width: 100%;
+//}
+//
+///*-- aboutus Content --*/
+//.aboutus-content h1 {
+//  font-size: 40px;
+//  font-weight: 800;
+//  line-height: 40px;
+//  margin-bottom: 2px;
+//}
+//
+//@media only screen and (max-width: 479px) {
+//  .aboutus-content h1 {
+//    font-size: 30px;
+//    line-height: 30px;
+//  }
+//}
+//
+//.aboutus-content h1 span {
+//  color: #71b100;
+//}
+//
+//.aboutus-content h4 {
+//  font-size: 18px;
+//  font-weight: 500;
+//  color: #9b9b9b;
+//  margin-bottom: 23px;
+//}
+//
+//.aboutus-content p {
+//  font-size: 16px;
+//  line-height: 27px;
+//}
