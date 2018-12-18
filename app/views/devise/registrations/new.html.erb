@@ -3,7 +3,7 @@
   <section class="register-block">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 register-sec">
+        <div class="span3">
           <h2 class="text-center">Registrarse</h2>
           <div class="form-group">
             <div class="form-group">
@@ -42,7 +42,7 @@
               <%= link_to "Iniciar sesión", root_path %>
             <% end -%>
             <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-              <%= link_to "¿No recibistí el correo de confirmación?", new_confirmation_path(resource_name) %>
+              <%= link_to "¿No recibiste el correo de confirmación?", new_confirmation_path(resource_name) %>
             <% end -%>
           </div>
         </div>
