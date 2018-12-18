@@ -44,10 +44,24 @@ class HomeController < ApplicationController
   end
 
   def auth_pass
-    @firma = FirmaElectronica.new
-    @firma.generar_firma(current_academico)
-    send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
+    clave_actual = params[:pass_actual]
+    clave_pem = params[:pass_pem]
+    clave_confirm_pem = params[:conf_pass_pem]
+    if current_academico.valid_password?(clave_actual)
+      if clave_pem == clave_confirm_pem
+        @firma = FirmaElectronica.new
+        @firma.generar_firma(current_academico, clave_pem)
+        send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
+        #FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
+      else
+      flash[:notice] = "Las claves del archivo pem no coinciden"
+      end
+    else
+      flash[:notice] = "Contraseña incorrecta"
+    end
+
   end
+
   private
   def upload_doc_params
     params.require(:documento).permit(:nombre, :archivo)

@@ -9,10 +9,10 @@ class FirmaElectronica < ApplicationRecord
   attr_accessor :private_key
 
 
-  def generar_firma(academico)
+  def generar_firma(academico, clave_pem)
     key = OpenSSL::PKey::RSA.new 4096
     cipher = OpenSSL::Cipher.new 'AES-128-CBC'
-    pass_phrase = academico.numPersonal.to_s
+    pass_phrase = clave_pem.to_s
     key_secure = key.export cipher, pass_phrase
     publicKey = key.public_key.to_s
     privateKey = key.to_s
