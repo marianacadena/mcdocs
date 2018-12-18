@@ -51,7 +51,6 @@ class HomeController < ApplicationController
     @firma = FirmaElectronica.new
     @firma.generar_firma(current_academico)
     send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
-
   end
   private
   def upload_doc_params

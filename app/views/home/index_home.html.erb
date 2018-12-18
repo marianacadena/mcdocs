@@ -39,8 +39,8 @@
                 </span>
                 <li>
                   <span>
-                      <%= image_tag('llave.png', class: "iconos", data:{original:{title: "llave"}})%>
-                  <%= link_to "Generar llaves", auth_pass_path, method: :post, class: "letra" %></li>
+                    <%= image_tag('llave.png', class: "iconos", data:{original:{title: "llave"}})%>
+                    <%= link_to home_path, data:{toggle: "modal", target: "#generar_pass_pem"} %>
                 </span>
                 <li>
                   <span>
@@ -86,10 +86,13 @@
                             <div class="form-group">
                               <%= f.file_field :archivo, class: "form-control", accept: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
                             </div>
-                            <div class="form-group">
-                              <label class="label-as-block">Si es un pdf tambien ingrese su certificado (archivo.pem)</label>
-                              <%= file_field_tag "pem_file", class: "form-control", accept: 'application/x-pem-file' %>
-                              <%= password_field_tag  "pass_pem"%>
+                            <div class="modal-body container">
+                              <div class="form-group">
+                                <label class="label-as-block">Si es un pdf tambien ingrese su certificado (archivo.pem)</label>
+                                <%= file_field_tag "pem_file", class: "form-control", accept: 'application/x-pem-file' %>
+                                <label> Contraseña archivo pem:</label>
+                                <%= password_field_tag  "pass_pem", class:"form-control" %>
+                              </div>
                             </div>
                             <div class="modal-footer">
                               <%= f.submit "Guardar", class: "btn btn-primary" %>
@@ -99,34 +102,47 @@
                       </div>
                     </div>
                   </div>
-<!--                  <div class="modal fade" role="dialog" id="Subir">-->
-<!--                    <div class="modal-content">-->
-<!--                      <div class="modal-header">-->
-<!--                        <h5 class="modal-title">Subir documento</h5>-->
-<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                          <span aria-hidden="true">&times;</span>-->
-<!--                        </button>-->
-<!--                      </div>-->
-<!--                      <div class="modal-body container">-->
-                        <%#=form_for @doc_uploaded , url: { controller: "home", action:"upload_doc", method: :post }, html: {class: "nifty_form"}, multipart: true do |f| %>
-<!--                          <div class="row">-->
-                            <%#= f.label :nombre, value: "Título: " %>
-                            <%#= f.text_field :nombre, class: "form-control" %>
-<!--                          </div>-->
-<!--                          <div class="row">-->
-                            <%#= f.label :formato, value: 'Formato:' %>
-                            <%#= f.select :formato, [ 'pdf', 'docx'], prompt: 'Selecciona un formato', class: 'custom-select', accept: 'application/msword, application/pdf' %>
-<!--                          </div>-->
-<!--                          <div class="row">-->
-<!--                            <%#= f.file_field :archivo %>>-->
-<!--                          </div>-->
-<!--                          <div class="modal-footer">-->
-                            <%#= f.submit "Publicar", class: "btn btn-primary" %>
-<!--                          </div>-->
-                        <%# end %>
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                  </div>-->
+                  <div class="modal fade" role="dialog" id="generar_pass_pem">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Generar contraseñas</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body container">
+                        <%=form_tag  url: { controller: "home", action:"auth_pass", method: :post }, html: {class: "nifty_form"} do %>
+                          <div class="row">
+                            <div class="col">
+                              <label for="pass_actual">Contraseña actual</label>
+                            </div>
+                            <div class="col">
+                              <%= password_field_tag "pass_actual", class: "form-control" %>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <label for="pass-pen">Contraseña para las llaves </label>
+                            </div>
+                            <div class="col">
+                              <%= password_field_tag "pass_pem", class: "form-control" %>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col">
+                              <label for="pass-pen">Confirme contraseña para las llaves:</label>
+                            </div>
+                            <div class="col">
+                              <%= password_field_tag "conf_pass_pem", class: "form-control" %>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="submit" id="btn-sub-pem">Generar llaves</button>
+                          </div>
+                        <% end %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
