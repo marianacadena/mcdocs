@@ -34,6 +34,6 @@ Rails.application.routes.draw do
 
 
   get 'chat', to: 'chat#index', as: :chat
-  post 'generar_hash', to: 'home#auth_pass', as: :auth_pass
+  post 'auth_pass', to: 'home#auth_pass', as: :auth_pass
   post 'generar_certificado', to: 'home#generate_signature', as: :generate_certificate
 end

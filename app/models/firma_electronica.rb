@@ -9,10 +9,10 @@ class FirmaElectronica < ApplicationRecord
   attr_accessor :private_key
 
 
-  def generar_firma(academico)
+  def generar_firma(academico, clave_pem)
     key = OpenSSL::PKey::RSA.new 4096
     cipher = OpenSSL::Cipher.new 'AES-128-CBC'
-    pass_phrase = academico.numPersonal.to_s
+    pass_phrase = clave_pem.to_s
     key_secure = key.export cipher, pass_phrase
     publicKey = key.public_key.to_s
     privateKey = key.to_s
@@ -47,33 +47,35 @@ class FirmaElectronica < ApplicationRecord
 
   end
 
-  def generar_certificado
-    #
-    # digest = OpenSSL::Digest::SHA256.new
-    #       archivo = '/Users/cristina/Downloads/tema5.pdf'
-    #       ruta_archivo = '/Users/cristina/Downloads/'
-    #       n_archivo = 'tema5.pdf'
-    #       puts "digest: "
-    #       puts digest
-    #       signature = key.sign digest, archivo
-    #
-    #       puts "Signature: "
-    #       puts signature
-    #
-    #
-    #       nombre_final = ruta_archivo + "certificado_" + n_archivo
-    #       #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
-    #       Prawn::Document.generate("certificado.pdf", :template => archivo) do
-    #         font "Times-Roman"
-    #         text "public key: + #{key.public_key.to_s}", :align => :center
-    #         text "digest: + #{digest.to_s}", :align => :center
-    #       end
-    #
-    #       pdf = CombinePDF.new
-    #       pdf << CombinePDF.load(archivo)
-    #       pdf << CombinePDF.load("certificado.pdf")
-    #       pdf.save nombre_final
-    #
-    #
+  def generar_certificado(pem_file, pass_pem, archivo)
+
+    key_pem = File.read pem_file
+    key = OpenSSL::PKey::RSA.new key_pem, pass_pem
+
+    digest = OpenSSL::Digest::SHA256.new
+    #archivo = '/Users/cristina/Downloads/tema5.pdf'
+    archivo = pem_file
+    ruta_archivo = '/Users/cristina/Downloads/'
+    n_archivo = 'tema5.pdf'
+
+    signature = key.sign digest, archivo
+
+    nombre_final = ruta_archivo + "certificado_" + n_archivo
+    #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
+    Prawn::Document.generate("certificado.pdf", :template => archivo) do
+      font "Times-Roman"
+      text "FIRMADO POR: + #{current_academico.nombre} + " " #{current_academico.apellidos}", :align => :center
+      text "LOCALIZACIÓN: México", :align => :center
+      text "PUBLIC KEY: + #{key.public_key.to_s}", :align => :center
+      text "CIFRADO DEL DOCUMENTO: + #{digest.to_s}", :align => :center
+      text "FECHA CERTIFICACIÓN: + #{DateAndTime.now}", :align => :center
+    end
+
+    pdf = CombinePDF.new
+    pdf << CombinePDF.load(archivo)
+    pdf << CombinePDF.load("certificado.pdf")
+    pdf.save nombre_final
+
+
   end
 end
