@@ -36,6 +36,3 @@
     });
 })();
 
-$("#correo").css("form-control")
-$("#clave").css("form-control")
-$("#conf_clave").css("form-control")
