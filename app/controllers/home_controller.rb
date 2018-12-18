@@ -20,9 +20,10 @@ class HomeController < ApplicationController
     if @doc_uploaded.archivo.content_type == "application/pdf"
       @doc_uploaded.formato = "pdf"
       #pdf_temp = params.require(:documento).permit(:archivo)
-      archivo_pdf = ActiveStorage::Blob.service.send(:path_for,@doc_uploaded.archivo.key)
+      #archivo_pdf = ActiveStorage::Blob.service.send(:path_for,@doc_uploaded.archivo.key)
+      archivo_pdf = params[:archivo].tempfile
       archivo_pem = params[:pem_file]
-      @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf, archivo_pem, params[:pass_pem_upload])
+      @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf.path, archivo_pem, params[:pass_pem_upload])
     else
       @doc_uploaded.formato = "docx"
     end
