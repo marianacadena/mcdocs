@@ -8,6 +8,7 @@ class Academico < ApplicationRecord
   has_many :has_colaboracions
   has_many :documentos, through: :has_colaboracions
   validates :img_perfil, presence: true
+  validates_presence_of :email, :nombre, : message: "Verifique campos vacíos"
   before_create :generate_image
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

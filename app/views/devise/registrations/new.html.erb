@@ -1,50 +1,76 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-  <div class="wrapper fadeInDown">
-    <div id="formContent">
-      <div class="fadeIn first">
-        <h2 class="text-center">Registrarse</h2>
+  <div class="row">
+    <div class="row">
+      <div class="col">
+        <%= f.label :nombre, value:"Nombre" %>
       </div>
-          <div class="form-group">
-            <div class="form-group">
-              <%= f.label :nombre, value:"Nombre" %>
-              <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre", class:"form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :apellidos, value:"Apellidos" %>
-              <%= f.text_field :apellidos, autocomplete: "apellidos", class:"form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :numPersonal, value:"Número de personal" %>
-              <%= f.text_field :numPersonal, autocomplete: "numPersonal", class:"form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :email, value:"Correo" %>
-              <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :password, value:"Contraseña"%>
-              <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> mínimo de caracteres)</em>
-              <% end %>
-              <%= f.password_field  :password, autocomplete: "new-password" , class:"form-control"%>
-            </div>
-            <div class="form-group">
-              <%= f.label :password_confirmation, value:"Confirmación de contraseña" %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control"%>
-            </div>
-            <div class="form-check">
-              <%= f.submit "Registrarse" , class: "btn btn-register float-right"%>
-            </div>
-          </div>
-          <div>
-            <%- if controller_name != 'sessions' %>
-              <%= link_to "Iniciar sesión", root_path %>
-            <% end -%>
-            <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-              <%= link_to "¿No recibiste el correo de confirmación?", new_confirmation_path(resource_name) %>
-            <% end -%>
-          </div>
-        </div>
+      <div class="col">
+        <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre", class:"form-control" %>
       </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.label :apellidos, value:"Apellidos" %>
+      </div>
+      <div class="col">
+        <%= f.text_field :apellidos, autocomplete: "apellidos", class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.label :numPersonal, value:"Número de personal" %>
+      </div>
+      <div class="col">
+        <%= f.text_field :numPersonal, autocomplete: "numPersonal", class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.label :email, value:"Correo" %>
+      </div>
+      <div class="col">
+        <%= f.email_field :email, autocomplete: "email", class:"form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.label :password, value:"Contraseña"%>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> mínimo de caracteres)</em>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= f.password_field  :password, autocomplete: "new-password" , class:"form-control"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%= f.label :password_confirmation, value:"Confirmación de contraseña" %>
+      </div>
+      <div class="col">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"form-control"%>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <%= f.submit "Registrarse" , class: "btn btn-register float-right"%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%- if controller_name != 'sessions' %>
+          <%= link_to "Iniciar sesión", root_path %>
+        <% end -%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+          <%= link_to "¿No recibiste el correo de confirmación?", new_confirmation_path(resource_name) %>
+        <% end -%>
+      </div>
+    </div>
+  </div>
 <% end %>
