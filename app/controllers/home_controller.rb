@@ -39,11 +39,7 @@ class HomeController < ApplicationController
   def delete_doc
     doc_off = Documento.find(params[:doc_id])
     doc_off.activo = 0
-    if doc_off.save!
-      flash[:notice] =  "Se ha eliminado"
-    else
-      flash[:notice] =  "No se ha podido eliminar"
-    end
+    flash[:notice] = doc_off.save! ? "Se ha eliminado" : "No se ha podido eliminar"
     redirect_to home_path
   end
 
