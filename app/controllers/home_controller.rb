@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   before_action :remove_authentication_flash_message_if_root_url_requested
   before_action :authenticate_academico!
 
+
   def index_home
     @doc_uploaded = Documento.new
     @academicos = Academico.new.find_other_academicos(current_academico.email)
