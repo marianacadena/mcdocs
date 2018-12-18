@@ -113,7 +113,7 @@
                           </button>
                         </div>
                         <div class="modal-body container">
-                          <%=form_tag  url: { controller: "home", action:"auth_pass", method: :post }, html: {class: "nifty_form"} do %>
+                          <%=form_tag  auth_pass_path, html: {class: "nifty_form"} do %>
                             <div class="row">
                               <div class="col">
                                 <label for="pass_actual">Contraseña actual</label>
