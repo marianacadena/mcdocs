@@ -16,12 +16,14 @@ class HomeController < ApplicationController
   end
   def upload_doc
     @doc_uploaded = Documento.new(upload_doc_params)
+    Rails.logger.debug(@doc_uploaded.inspect)
+    Rails.logger.debug(params[:documento].archivo.inspect)
     @doc_uploaded.academico = current_academico
     if @doc_uploaded.archivo.content_type == "application/pdf"
       @doc_uploaded.formato = "pdf"
       #pdf_temp = params.require(:documento).permit(:archivo)
       #archivo_pdf = ActiveStorage::Blob.service.send(:path_for,@doc_uploaded.archivo.key)
-      archivo_pdf = params[:archivo].tempfile
+      archivo_pdf = params[:documento].archivo
       archivo_pem = params[:pem_file]
       @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf.path, archivo_pem, params[:pass_pem_upload])
     else
