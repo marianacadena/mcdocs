@@ -10,7 +10,7 @@ class EditorController < ApplicationController
   def create_doc
     @doc = Documento.new(params_create_doc)
     @doc.formato = "docx"
-    nombre_arch = "#{@doc.nombre}.docx".html_safe
+    nombre_arch = "#{@doc.nombre}.docx".tr('/<>,*','')
     arch_new = Htmltoword::Document.create_and_save @doc.contenido, nombre_arch
     @doc.archivo.attach(io: File.open(arch_new), filename: nombre_arch, content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' )
     @doc.academico = current_academico
