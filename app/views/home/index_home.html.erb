@@ -83,12 +83,13 @@
                               <%= f.label :nombre, value: "Título: ", class: "col-form-label" %>
                               <%= f.text_field :nombre, class: "form-control" %>
                             </div>
-<!--                            <div class="form-group">-->
-                              <%#= f.label :formato, value: 'Formato:' %>
-                              <%#= f.select :formato, [ "pdf", "docx"], prompt: 'Selecciona un formato', html: {class: "form-group", accept: "application/msword, application/pdf"}  %>
-<!--                            </div>-->
                             <div class="form-group">
-                              <%= f.file_field :archivo, class: "form-control" %>
+                              <%= f.file_field :archivo, class: "form-control", accept: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
+                            </div>
+                            <div class="form-group">
+                              <label class="label-as-block">Si es un pdf tambien ingrese su certificado (archivo.pem)</label>
+                              <%= file_field_tag "pem_file", class: "form-control", accept: 'application/x-pem-file' %>
+                              <%= password_field_tag  "pass_pem"%>
                             </div>
                             <div class="modal-footer">
                               <%= f.submit "Guardar", class: "btn btn-primary" %>
@@ -98,34 +99,34 @@
                       </div>
                     </div>
                   </div>
-                  <div class="modal fade" role="dialog" id="Subir">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title">Subir documento</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body container">
-                        <%=form_for @doc_uploaded , url: { controller: "home", action:"upload_doc", method: :post }, html: {class: "nifty_form"}, multipart: true do |f| %>
-                          <div class="row">
-                            <%= f.label :nombre, value: "Título: " %>
-                            <%= f.text_field :nombre, class: "form-control" %>
-                          </div>
-                          <div class="row">
-                            <%= f.label :formato, value: 'Formato:' %>
-                            <%= f.select :formato, [ 'pdf', 'docx'], prompt: 'Selecciona un formato', class: 'custom-select', accept: 'application/msword, application/pdf' %>
-                          </div>
-                          <div class="row">
-                            <%= f.file_field :archivo %>>
-                          </div>
-                          <div class="modal-footer">
-                            <%= f.submit "Publicar", class: "btn btn-primary" %>
-                          </div>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
+<!--                  <div class="modal fade" role="dialog" id="Subir">-->
+<!--                    <div class="modal-content">-->
+<!--                      <div class="modal-header">-->
+<!--                        <h5 class="modal-title">Subir documento</h5>-->
+<!--                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                          <span aria-hidden="true">&times;</span>-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div class="modal-body container">-->
+                        <%#=form_for @doc_uploaded , url: { controller: "home", action:"upload_doc", method: :post }, html: {class: "nifty_form"}, multipart: true do |f| %>
+<!--                          <div class="row">-->
+                            <%#= f.label :nombre, value: "Título: " %>
+                            <%#= f.text_field :nombre, class: "form-control" %>
+<!--                          </div>-->
+<!--                          <div class="row">-->
+                            <%#= f.label :formato, value: 'Formato:' %>
+                            <%#= f.select :formato, [ 'pdf', 'docx'], prompt: 'Selecciona un formato', class: 'custom-select', accept: 'application/msword, application/pdf' %>
+<!--                          </div>-->
+<!--                          <div class="row">-->
+<!--                            <%#= f.file_field :archivo %>>-->
+<!--                          </div>-->
+<!--                          <div class="modal-footer">-->
+                            <%#= f.submit "Publicar", class: "btn btn-primary" %>
+<!--                          </div>-->
+                        <%# end %>
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
                 </div>
               </div>
             </div>
