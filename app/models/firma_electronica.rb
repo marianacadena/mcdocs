@@ -58,6 +58,7 @@ class FirmaElectronica < ApplicationRecord
     #ruta_archivo = '/Users/cristina/Downloads/'
     #n_archivo = 'tema5.pdf'
 
+
     signature = key.sign digest, archivo
 
     nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
