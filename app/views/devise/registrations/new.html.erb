@@ -1,8 +1,10 @@
 <div class="fondo_registro">
-  <div class="container">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="fadeIn first">
+        <h1 class="text-center">Registrarse</h1>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-      <h1 class="text-center">Registrarse</h1>
       <div class="row">
         <div class="col">
           <%= f.label :nombre, value:"Nombre" %>
@@ -75,5 +77,7 @@
         </div>
       </div>
     <% end %>
+      </div>
+    </div>
   </div>
 </div>
