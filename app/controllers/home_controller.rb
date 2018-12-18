@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   before_action :remove_authentication_flash_message_if_root_url_requested
   before_action :authenticate_academico!
+
   def index_home
     @doc_uploaded = Documento.new
     @academicos = Academico.new.find_other_academicos(current_academico.email)
@@ -18,7 +19,7 @@ class HomeController < ApplicationController
     if @doc_uploaded.archivo.content_type == "application/pdf"
       @doc_uploaded.formato = "pdf"
       #pdf_temp = params.require(:documento).permit(:archivo)
-      archivo_pdf =  params.require(:documento).permit(:archivo)
+      archivo_pdf = ActiveStorage::Blob.service.send(:path_for,@doc_uploaded.archivo.key)
       archivo_pem = params[:pem_file]
       @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf, archivo_pem, params[:pass_pem_upload])
     else
