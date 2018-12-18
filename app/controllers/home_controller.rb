@@ -18,7 +18,9 @@ class HomeController < ApplicationController
     if @doc_uploaded.archivo.content_type == "application/pdf"
       @doc_uploaded.formato = "pdf"
       #pdf_temp = params.require(:documento).permit(:archivo)
-      @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(@doc_uploaded.archivo, params[:pem_file], params[:pass_pem_upload])
+      archivo_pdf =  params.require(:documento).permit(:archivo)
+      archivo_pem = params[:pem_file]
+      @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf, archivo_pem, params[:pass_pem_upload])
     else
       @doc_uploaded.formato = "docx"
     end
