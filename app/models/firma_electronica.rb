@@ -62,7 +62,7 @@ class FirmaElectronica < ApplicationRecord
       #n_archivo = 'tema5.pdf'
 
 
-      signature = key.sign digest, archivo.tempfile
+      signature = key.sign(digest, archivo.read)
 
       nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
       #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
