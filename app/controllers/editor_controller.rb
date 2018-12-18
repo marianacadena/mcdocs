@@ -12,7 +12,7 @@ class EditorController < ApplicationController
     @doc.formato = "docx"
     nombre_arch = "#{@doc.nombre}.docx".html_safe
     arch_new = Htmltoword::Document.create_and_save @doc.contenido, nombre_arch
-    @doc.archivo.attach(io: File.open(arch_new), filename: @doc.nombre + ".docx", content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' )
+    @doc.archivo.attach(io: File.open(arch_new), filename: nombre_arch, content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' )
     @doc.academico = current_academico
     if @doc.valid?
       @doc.save!
