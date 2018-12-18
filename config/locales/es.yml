@@ -1,0 +1,8 @@
+es:
+  activerecord:
+    errors:
+      models:
+        academico:
+          attributes:
+            email:
+              taken: "Académico ya existente"
