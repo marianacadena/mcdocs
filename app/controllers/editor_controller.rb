@@ -10,14 +10,14 @@ class EditorController < ApplicationController
   def create_doc
     @doc = Documento.new(params_create_doc)
     @doc.formato = "docx"
-    nombre_arch = (@doc.nombre+".docx").html_safe!
+    nombre_arch = (@doc.nombre+".docx").html_safe
     arch_new = Htmltoword::Document.create_and_save @doc.contenido, @doc.nombre+".docx"
     @doc.archivo.attach(io: File.open(arch_new), filename: @doc.nombre + ".docx", content_type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' )
     @doc.academico = current_academico
     if @doc.valid?
       @doc.save!
       arch_new.close
-      FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
+      # FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
       redirect_to home_path
     else
       flash[:notice] = "No se puede subir el archivo"
