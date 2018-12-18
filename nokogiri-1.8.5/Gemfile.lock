@@ -1,0 +1,42 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    concourse (0.20.0)
+    hoe (3.17.1)
+      rake (>= 0.8, < 13.0)
+    hoe-bundler (1.5.0)
+    hoe-debugging (1.5.0)
+    hoe-gemspec (1.0.0)
+      hoe (>= 2.2.0)
+    hoe-git (1.6.0)
+    mini_portile2 (2.3.0)
+    minitest (5.8.5)
+    racc (1.4.14)
+    rake (12.3.2)
+    rake-compiler (1.0.5)
+      rake
+    rake-compiler-dock (0.6.3)
+    rdoc (4.3.0)
+    rexical (1.0.5)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  concourse (~> 0.15)
+  hoe (~> 3.16)
+  hoe-bundler (~> 1.2)
+  hoe-debugging (~> 1.4)
+  hoe-gemspec (~> 1.0)
+  hoe-git (~> 1.6)
+  mini_portile2 (~> 2.3.0)
+  minitest (~> 5.8.4)
+  racc (~> 1.4.14)
+  rake (~> 12.0)
+  rake-compiler (~> 1.0.3)
+  rake-compiler-dock (~> 0.6.2)
+  rdoc (~> 4.0)
+  rexical (~> 1.0.5)
+
+BUNDLED WITH
+   1.17.1
