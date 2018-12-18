@@ -149,7 +149,7 @@ h2.active {
 
 /* FORM TYPOGRAPHY*/
 
-input[type=button], input[type=submit], input[type=reset]  {
+input[type=button], input[type=submit], input[type=reset], #btn_regresar  {
   background-color: #56baed;
   border: none;
   color: white;
@@ -182,6 +182,8 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   -ms-transform: scale(0.95);
   transform: scale(0.95);
 }
+
+
 
 input[type=text] {
   background-color: #f6f6f6;
