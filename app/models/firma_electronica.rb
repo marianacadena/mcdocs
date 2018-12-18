@@ -47,20 +47,20 @@ class FirmaElectronica < ApplicationRecord
 
   end
 
-  def generar_certificado(pem_file, pass_pem, archivo)
+  def generar_certificado(archivo, pem_file, pass_pem)
 
     key_pem = File.read pem_file
     key = OpenSSL::PKey::RSA.new key_pem, pass_pem
 
     digest = OpenSSL::Digest::SHA256.new
     #archivo = '/Users/cristina/Downloads/tema5.pdf'
-    archivo = pem_file
-    ruta_archivo = '/Users/cristina/Downloads/'
-    n_archivo = 'tema5.pdf'
+    #archivo = pem_file
+    #ruta_archivo = '/Users/cristina/Downloads/'
+    #n_archivo = 'tema5.pdf'
 
     signature = key.sign digest, archivo
 
-    nombre_final = ruta_archivo + "certificado_" + n_archivo
+    nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
     #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
     Prawn::Document.generate("certificado.pdf", :template => archivo) do
       font "Times-Roman"
@@ -68,14 +68,12 @@ class FirmaElectronica < ApplicationRecord
       text "LOCALIZACIÓN: México", :align => :center
       text "PUBLIC KEY: + #{key.public_key.to_s}", :align => :center
       text "CIFRADO DEL DOCUMENTO: + #{digest.to_s}", :align => :center
-      text "FECHA CERTIFICACIÓN: + #{DateAndTime.now}", :align => :center
+      text "FECHA CERTIFICACIÓN: + #{DateAndTime.now.to_s}", :align => :center
     end
 
     pdf = CombinePDF.new
     pdf << CombinePDF.load(archivo)
     pdf << CombinePDF.load("certificado.pdf")
     pdf.save nombre_final
-
-
   end
 end
