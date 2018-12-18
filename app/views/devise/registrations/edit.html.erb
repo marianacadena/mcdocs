@@ -55,7 +55,7 @@
               <i class="form-text text-muted">(Deja en blanco si no quieres cambiarla)</i>
             </div>
             <div class="col">
-              <%= f.password_field :password,"", class: "form-control" %>
+              <%= f.password_field :password, class: "form-control" %>
               <% if @minimum_password_length %>
                 <em class="form-text text-muted"><%= @minimum_password_length %> caracteres mínimo</em>
               <% end %>
