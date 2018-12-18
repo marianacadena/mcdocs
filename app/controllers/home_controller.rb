@@ -55,7 +55,7 @@ class HomeController < ApplicationController
           @firma = FirmaElectronica.new
           @firma.generar_firma(current_academico, clave_pem)
           send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
-          redirect_to home_path
+          #redirect_to home_path
           #FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
         else
           flash[:notice] = "Las claves del archivo pem no coinciden"
