@@ -49,32 +49,40 @@ class FirmaElectronica < ApplicationRecord
 
   def generar_certificado(archivo, pem_file, pass_pem)
 
+
     key_pem = File.read(pem_file.tempfile)
+
+
     key = OpenSSL::PKey::RSA.new key_pem, pass_pem
+    if(key)
+      digest = OpenSSL::Digest::SHA256.new
+      #archivo = '/Users/cristina/Downloads/tema5.pdf'
+      #archivo = pem_file
+      #ruta_archivo = '/Users/cristina/Downloads/'
+      #n_archivo = 'tema5.pdf'
 
-    digest = OpenSSL::Digest::SHA256.new
-    #archivo = '/Users/cristina/Downloads/tema5.pdf'
-    #archivo = pem_file
-    #ruta_archivo = '/Users/cristina/Downloads/'
-    #n_archivo = 'tema5.pdf'
 
+      signature = key.sign digest, archivo
 
-    signature = key.sign digest, archivo
+      nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
+      #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
+      Prawn::Document.generate("certificado.pdf", :template => archivo) do
+        font "Times-Roman"
+        text "FIRMADO POR: + #{current_academico.nombre} + " " #{current_academico.apellidos}", :align => :center
+        text "LOCALIZACIÓN: México", :align => :center
+        text "PUBLIC KEY: + #{key.public_key.to_s}", :align => :center
+        text "CIFRADO DEL DOCUMENTO: + #{digest.to_s}", :align => :center
+        text "FECHA CERTIFICACIÓN: + #{DateAndTime.now.to_s}", :align => :center
+      end
 
-    nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
-    #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
-    Prawn::Document.generate("certificado.pdf", :template => archivo) do
-      font "Times-Roman"
-      text "FIRMADO POR: + #{current_academico.nombre} + " " #{current_academico.apellidos}", :align => :center
-      text "LOCALIZACIÓN: México", :align => :center
-      text "PUBLIC KEY: + #{key.public_key.to_s}", :align => :center
-      text "CIFRADO DEL DOCUMENTO: + #{digest.to_s}", :align => :center
-      text "FECHA CERTIFICACIÓN: + #{DateAndTime.now.to_s}", :align => :center
+      pdf = CombinePDF.new
+      pdf << CombinePDF.load(archivo)
+      pdf << CombinePDF.load("certificado.pdf")
+      pdf.save nombre_final
+    else
+      flash[:notice] = "La contraseña del pem es inválida"
     end
 
-    pdf = CombinePDF.new
-    pdf << CombinePDF.load(archivo)
-    pdf << CombinePDF.load("certificado.pdf")
-    pdf.save nombre_final
+
   end
 end
