@@ -17,58 +17,60 @@
   </div>
 </nav>
 <section class="login-block">
-  <div class="container">
-    <div class="row ">
-      <div class="col login-sec">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <div class="fadeIn first">
+        <img src="MCDocs_Logo.png" id="icon" alt="User Icon" />
         <h2 class="text-center">Inicio de sesión</h2>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form"}) do |f|%>
-          <div class="form-group">
-            <%= f.label :email, value: "Email", class: "text-uppercase label-as-block"%>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :password, value: "Clave",  class: "text-uppercase label-as-block" %>
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-          </div>
-          <% if devise_mapping.rememberable? -%>
-            <div class="form-check">
-              <%= f.check_box :remember_me, class: "form-check-input"%>
-              <%= f.label :remember_me, :value => "Mantener sesión iniciada", class: "form-check-label" %>
-          <% end -%>
-          <%= f.submit "Entrar", class: "btn btn-primary float-rigth" %>
-          </div>
-          <div class="form-group">
-            <% if devise_mapping.registerable? && controller_name != 'registrations' %>
-              <%= link_to "Registrate", new_registration_path(resource_name), class: "form-check-input label-as-block" %>
-            <% end %>
-          </div>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "login-form"}) do |f|%>
+        <div class="form-group">
+          <%#= f.label :email, value: "Email", class: "text-uppercase label-as-block"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "fadeIn second", placeholder: "Email" %>
+        </div>
+        <div class="form-group">
+          <%#= f.label :password, value: "Clave",  class: "text-uppercase label-as-block" %>
+          <%= f.password_field :password, autocomplete: "current-password", class: " fadeIn third", placeholder: "Contraseña" %>
+        </div>
+        <% if devise_mapping.rememberable? -%>
+          <div class="form-check">
+            <%= f.check_box :remember_me, class: "form-check-input"%>
+            <%= f.label :remember_me, :value => "Mantener sesión iniciada", class: "form-check-label" %>
+        <% end -%>
+        <%= f.submit "Entrar", class: "fadeIn fourth" %>
+        </div>
+      <% end %>
+      <div id="formFooter">
+        <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "Registrate", new_registration_path(resource_name), class: "underlineHover " %>
         <% end %>
       </div>
     </div>
   </div>
 </section>
-<section id="sobre_nosotros">
-  <div class="aboutus-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <div class="aboutus-content ">
-              <h1>Sobre nosotros <span>McDocs</span></h1>
-              <h4>Ingeniería de software</h4>
-              <p>Con el fin de aprobar la materia "Dearrollo de sistemas web", los alumnos Mariana Cadena Romero, Alba Cristina Cayetano y Cristhian Ubaldo Promotor;
-                este proyecto se realiza con el fin de probar nuestras habilidades en la construcción de un
-              sitio web, que tiene como problema el que los academicos de la Facultad de Estadística e Informática el compartir actas de academia </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="contactanos">
 
-</section>
+<!--<section id="sobre_nosotros">-->
+<!--  <div class="aboutus-area">-->
+<!--    <div class="container">-->
+<!--      <div class="row">-->
+<!--        <div class="col-xs-12">-->
+<!--          <div class="col-md-8 col-sm-6 col-xs-12">-->
+<!--            <div class="aboutus-content ">-->
+<!--              <h1>Sobre nosotros <span>McDocs</span></h1>-->
+<!--              <h4>Ingeniería de software</h4>-->
+<!--              <p>Con el fin de aprobar la materia "Dearrollo de sistemas web", los alumnos Mariana Cadena Romero, Alba Cristina Cayetano y Cristhian Ubaldo Promotor;-->
+<!--                este proyecto se realiza con el fin de probar nuestras habilidades en la construcción de un-->
+<!--              sitio web, que tiene como problema el que los academicos de la Facultad de Estadística e Informática el compartir actas de academia </p>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--<section id="contactanos">-->
+
+<!--</section>-->
 <!--  <div class="container">-->
 <!--    <div class="row">-->
 <!--      <div class="col-md-4">-->
