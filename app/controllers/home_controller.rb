@@ -45,19 +45,17 @@ class HomeController < ApplicationController
 
   def auth_pass
     #clave_actual = params[:pass_actual]
-    clave_pem = params[:pass_pem]
-    clave_confirm_pem = params[:conf_pass_pem]
-    if params[:pass_actual]
-      if current_academico.valid_password?(params[:pass_actual])
-        if clave_pem == clave_confirm_pem
-          @firma = FirmaElectronica.new
-          @firma.generar_firma(current_academico, clave_pem)
-          send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
-          redirect_to home_path
-          #FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
-        else
+    clave_pem = :pass_pem
+    clave_confirm_pem = :conf_pass_pem
+    if current_academico.valid_password?(:pass_actual)
+      if clave_pem == clave_confirm_pem
+        @firma = FirmaElectronica.new
+        @firma.generar_firma(current_academico, clave_pem)
+        send_file(@firma.private_key, filename: "privatekey.pem", type: "application/x-pem-file")
+        redirect_to home_path
+        #FileUtils.rm_rf('/Users/marianacro/RubymineProjects/mcdocs/' + @doc.nombre+".docx")
+      else
         flash[:notice] = "Las claves del archivo pem no coinciden"
-        end
       end
     else
       flash[:notice] = "Contraseña incorrecta"
