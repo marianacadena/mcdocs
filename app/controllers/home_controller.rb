@@ -90,9 +90,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def generate_signature
-
-  end
 
   private
   def upload_doc_params

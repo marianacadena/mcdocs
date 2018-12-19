@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="93c6509b-d7e5-452a-89ec-f81ad5a3e390" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/mcdocs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mcdocs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/channels/conversation_channel.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/channels/conversation_channel.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/firma_electronica.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/firma_electronica.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/message.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/message.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/home/index_home.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/home/index_home.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/_mis_docs.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/_mis_docs.erb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -30,37 +29,37 @@
     <session id="-1534328830">
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="erb" value="192" />
-          <entry key="rb" value="1217" />
+          <entry key="erb" value="327" />
+          <entry key="rb" value="1220" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="RHTML" value="192" />
-          <entry key="Ruby" value="1217" />
+          <entry key="RHTML" value="327" />
+          <entry key="Ruby" value="1220" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="erb" value="1" />
-          <entry key="rb" value="2" />
+          <entry key="rb" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="RHTML" value="1" />
-          <entry key="Ruby" value="2" />
+          <entry key="Ruby" value="7" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+            <state relative-caret-position="105">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -84,28 +83,47 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+        <entry file="file://$PROJECT_DIR$/app/models/conversation.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/message.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="23" column="38" selection-start-line="23" selection-start-column="38" selection-end-line="23" selection-end-column="38" />
+            <state relative-caret-position="60">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/channels/conversation_channel.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/channels/application_cable/connection.rb">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/channels/application_cable/channel.rb">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/index_home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/firma_electronica.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="58" column="21" selection-start-line="58" selection-start-column="21" selection-end-line="58" selection-end-column="21" />
+            <state relative-caret-position="203">
+              <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -113,17 +131,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_mis_docs.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="96" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/documento.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="9" column="43" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+            <state relative-caret-position="308">
+              <caret line="80" column="12" lean-forward="true" selection-start-line="44" selection-start-column="6" selection-end-line="80" selection-end-column="12" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,7 +161,6 @@
         <option value="$PROJECT_DIR$/config/storage.yml" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/channels/conversation.js" />
-        <option value="$PROJECT_DIR$/app/channels/conversation_channel.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_compartidos.erb" />
         <option value="$PROJECT_DIR$/app/models/academico.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
@@ -162,10 +173,12 @@
         <option value="$PROJECT_DIR$/app/models/documento.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_mis_docs.erb" />
         <option value="$PROJECT_DIR$/app/controllers/editor_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/index_home.html.erb" />
         <option value="$PROJECT_DIR$/app/models/firma_electronica.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/index_home.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/message.rb" />
+        <option value="$PROJECT_DIR$/app/channels/conversation_channel.rb" />
       </list>
     </option>
   </component>
@@ -210,7 +223,14 @@
               <item name="heroku_mcdocs" type="b2602c69:ProjectViewProjectNode" />
               <item name="heroku_mcdocs" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="heroku_mcdocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="heroku_mcdocs" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="channels" type="462c0819:PsiDirectoryNode" />
+              <item name="application_cable" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="heroku_mcdocs" type="b2602c69:ProjectViewProjectNode" />
@@ -382,7 +402,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54598000" />
+    <option name="totallyTimeSpent" value="56246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -447,12 +467,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/messages/create.js.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/welcome/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/jobs/application_job.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -521,22 +535,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/channels/conversation_channel.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/message.rb">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/has_colaboracion.rb">
       <provider selected="true" editor-type-id="text-editor">
@@ -661,20 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mis_docs.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="71" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/devise.es.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -689,20 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/editor_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/index_home.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="84" column="68" selection-start-line="84" selection-start-column="68" selection-end-line="84" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/firma_electronica.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
@@ -710,10 +686,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mis_docs.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="80" column="12" lean-forward="true" selection-start-line="44" selection-start-column="6" selection-end-line="80" selection-end-column="12" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/devise.es.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="45" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="46" column="29" lean-forward="true" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index_home.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="148" column="24" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="24" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/channels/application_cable/connection.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/channels/application_cable/channel.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/editor_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/conversation.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/message.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/channels/conversation_channel.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
         </state>
       </provider>
     </entry>
