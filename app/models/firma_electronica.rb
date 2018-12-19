@@ -47,42 +47,43 @@ class FirmaElectronica < ApplicationRecord
 
   end
 
-  def generar_certificado(archivo, pem_file, pass_pem)
+  def generar_certificado(archivo, pem_file, pass_pem, current_academico, nombre_final)
 
 
     key_pem = File.read(pem_file.tempfile)
 
+    llave_valida = true
+    begin
+      key = OpenSSL::PKey::RSA.new key_pem, pass_pem
+    rescue
+      Rails.logger.debug(key)
+      llave_valida=false
+    end
 
-    key = OpenSSL::PKey::RSA.new key_pem, pass_pem
-    if(key)
+
+    if llave_valida
       digest = OpenSSL::Digest::SHA256.new
-      #archivo = '/Users/cristina/Downloads/tema5.pdf'
-      #archivo = pem_file
-      #ruta_archivo = '/Users/cristina/Downloads/'
-      #n_archivo = 'tema5.pdf'
-
 
       signature = key.sign digest, archivo
 
-      nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
+      archivo_firmado = Tempfile.new([nombre_final,'.pdf'])
       #filename = "#{Prawn::DATADIR}/pdfs/multipage_template.pdf"
       Prawn::Document.generate("certificado.pdf", :template => archivo) do
         font "Times-Roman"
-        text "FIRMADO POR: + #{current_academico.nombre} + " " #{current_academico.apellidos}", :align => :center
+        text "FIRMADO POR: #{current_academico.nombre} #{current_academico.apellidos}", :align => :center
         text "LOCALIZACIÓN: México", :align => :center
         text "PUBLIC KEY: + #{key.public_key.to_s}", :align => :center
         text "CIFRADO DEL DOCUMENTO: + #{digest.to_s}", :align => :center
-        text "FECHA CERTIFICACIÓN: + #{DateAndTime.now.to_s}", :align => :center
+        text "FECHA CERTIFICACIÓN: + #{Time.now.to_s}", :align => :center
       end
 
       pdf = CombinePDF.new
       pdf << CombinePDF.load(archivo)
       pdf << CombinePDF.load("certificado.pdf")
-      pdf.save nombre_final
+      pdf.save archivo_firmado
+      archivo_firmado
     else
-      flash[:notice] = "La contraseña del pem es inválida"
+      nil
     end
-
-
   end
 end

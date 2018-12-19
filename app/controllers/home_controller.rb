@@ -15,23 +15,37 @@ class HomeController < ApplicationController
     end
   end
   def upload_doc
-    @doc_uploaded = Documento.new(upload_doc_params)
+    @doc_uploaded = Documento.new(nombre: params[:nombre])
+    @doc_uploaded.archivo.attach(params[:archivo])
     Rails.logger.debug(@doc_uploaded.inspect)
-    Rails.logger.debug(params[:documento].archivo.inspect)
     @doc_uploaded.academico = current_academico
     if @doc_uploaded.archivo.content_type == "application/pdf"
       @doc_uploaded.formato = "pdf"
       #pdf_temp = params.require(:documento).permit(:archivo)
       #archivo_pdf = ActiveStorage::Blob.service.send(:path_for,@doc_uploaded.archivo.key)
-      archivo_pdf = params[:documento].archivo
+      archivo_pdf = params[:archivo]
       archivo_pem = params[:pem_file]
-      @doc_uploaded.archivo = FirmaElectronica.new.generar_certificado(archivo_pdf.path, archivo_pem, params[:pass_pem_upload])
+      nombre_final = "mcdocs_certificado_#{current_academico.numPersonal}.pdf"
+      archivo_cifrado = FirmaElectronica.new.generar_certificado(archivo_pdf.path, archivo_pem, params[:pass_pem_upload], current_academico, nombre_final)
+      if(archivo_cifrado == nil)
+        @doc_uploaded.archivo = nil
+        flash[:notice] = "La clave o el archivo son inválidos"
+        redirect_to home_path
+      else
+        @doc_uploaded.archivo.attach(io: archivo_cifrado, filename: nombre_final, content_type: "application/pdf")
+        flash[:notice] = "Documento gurdado y firmado con éxito"
+        if @doc_uploaded.valid? #&& @doc_uploaded.formato == @doc_uploaded.archivo.content_type
+          @doc_uploaded.save!
+          redirect_to root_path
+        end
+      end
     else
       @doc_uploaded.formato = "docx"
-    end
-    if @doc_uploaded.valid? #&& @doc_uploaded.formato == @doc_uploaded.archivo.content_type
-      @doc_uploaded.save!
-      redirect_to root_path
+      if @doc_uploaded.valid? #&& @doc_uploaded.formato == @doc_uploaded.archivo.content_type
+        @doc_uploaded.save!
+        flash[:notice] = "El archivo se ha guardado"
+        redirect_to root_path
+      end
     end
   end
   def share_doc

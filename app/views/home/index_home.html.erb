@@ -79,13 +79,14 @@
                           </button>
                         </div>
                         <div class="modal-body container">
-                          <%=form_for @doc_uploaded , url: { controller: "home", action:"upload_doc", method: :post }, html: {class: "form-group"}, multipart: true do |f| %>
+                          <%=form_tag  upload_path, html: {class: "form-group"}, multipart: true do %>
                             <div class="form-group">
-                              <%= f.label :nombre, value: "Título: ", class: "col-form-label" %>
-                              <%= f.text_field :nombre, class: "form-control" %>
+                              <label class="col-form-label">Título</label>
+                              <%#= label :nombre, value: "Título: ", class: "col-form-label" %>
+                              <%= text_field_tag "nombre", nil,class: "form-control" %>
                             </div>
                             <div class="form-group">
-                              <%= f.file_field :archivo, class: "form-control", accept: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
+                              <%= file_field_tag "archivo", class: "form-control", accept: 'application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document' %>
                             </div>
                             <div class="modal-body container">
                               <div class="form-group">
@@ -96,7 +97,7 @@
                               </div>
                             </div>
                             <div class="modal-footer">
-                              <%= f.submit "Guardar", class: "btn btn-primary" %>
+                              <button type="submit" id="btn-upload" class="btn btn-primary">Guardar</button>
                             </div>
                           <% end %>
                         </div>
