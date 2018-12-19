@@ -1,4 +1,5 @@
 class ChatController < ApplicationController
+  before_action :authenticate_academico!
   def index
     session[:conversations] ||= []
 
