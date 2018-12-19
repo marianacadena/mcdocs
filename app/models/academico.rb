@@ -9,6 +9,7 @@ class Academico < ApplicationRecord
   has_many :documentos, through: :has_colaboracions
   validates :img_perfil, presence: true
   validates_presence_of :email, :nombre,  message: "Verifique campos vacíos"
+  validates_uniqueness_of :numPersonal , message: "El número de personal ya existe"
   before_create :generate_image
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
